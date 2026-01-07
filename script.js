@@ -1,12 +1,13 @@
 const tg = window.Telegram.WebApp;
-tg.expand();
+tg.ready();
 
-document.querySelectorAll(".buy-btn").forEach(btn => {
-    btn.onclick = () => {
-        tg.sendData(JSON.stringify({
-            action: "buy",
-            product: btn.dataset.product
-        }));
-        tg.close();
-    };
-});
+function buy(product) {
+  tg.sendData(JSON.stringify({
+    action: "buy",
+    product: product,
+    price: 100
+  }));
+
+  // мини-подтверждение
+  tg.showAlert(`Вы выбрали: ${product}`);
+}

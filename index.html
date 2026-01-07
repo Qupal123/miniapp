@@ -1,41 +1,105 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Lapizxx Shop</title>
-    <link rel="stylesheet" href="style.css?v=4">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <meta charset="UTF-8">
+  <title>Lapizxx Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
 
-<h1>🛒 Lapizxx Shop</h1>
+  <h1 class="title">🛒 Lapizxx Shop</h1>
 
-<div class="products">
+  <div class="shop">
 
-    <!-- ГЕМЫ -->
-    <div class="card"><img src="img/30.png"><h2>30 гемов</h2><p>100 ₽</p><button class="buy-btn" data-product="30 gems">Купить</button></div>
-    <div class="card"><img src="img/80.png"><h2>80 гемов</h2><p>100 ₽</p><button class="buy-btn" data-product="80 gems">Купить</button></div>
-    <div class="card"><img src="img/170.png"><h2>170 гемов</h2><p>100 ₽</p><button class="buy-btn" data-product="170 gems">Купить</button></div>
-    <div class="card"><img src="img/360.png"><h2>360 гемов</h2><p>100 ₽</p><button class="buy-btn" data-product="360 gems">Купить</button></div>
-    <div class="card"><img src="img/950.png"><h2>950 гемов</h2><p>100 ₽</p><button class="buy-btn" data-product="950 gems">Купить</button></div>
-    <div class="card"><img src="img/2000.png"><h2>2000 гемов</h2><p>100 ₽</p><button class="buy-btn" data-product="2000 gems">Купить</button></div>
+    <!-- GEM PACKS -->
+    <div class="card">
+      <img src="img/30.png">
+      <h3>30 гемов</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('30 гемов')">Купить</button>
+    </div>
 
-    <!-- ПАССЫ -->
-    <div class="card"><img src="img/BP.png"><h2>Brawl Pass</h2><p>100 ₽</p><button class="buy-btn" data-product="Brawl Pass">Купить</button></div>
+    <div class="card">
+      <img src="img/80.png">
+      <h3>80 гемов</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('80 гемов')">Купить</button>
+    </div>
 
-    <!-- ЕСЛИ BP+.png -->
-    <div class="card"><img src="img/BP_plus.png"><h2>Brawl Pass+</h2><p>100 ₽</p><button class="buy-btn" data-product="Brawl Pass+">Купить</button></div>
+    <div class="card">
+      <img src="img/170.png">
+      <h3>170 гемов</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('170 гемов')">Купить</button>
+    </div>
 
-    <div class="card"><img src="img/BPU.png"><h2>Brawl Pass Ultimate</h2><p>100 ₽</p><button class="buy-btn" data-product="BPU">Купить</button></div>
+    <div class="card">
+      <img src="img/360.png">
+      <h3>360 гемов</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('360 гемов')">Купить</button>
+    </div>
 
-    <!-- ПРОЧЕЕ -->
-    <div class="card"><img src="img/PROP.png"><h2>ProPass</h2><p>100 ₽</p><button class="buy-btn" data-product="ProPass">Купить</button></div>
-    <div class="card"><img src="img/MM.png"><h2>Mega Box</h2><p>100 ₽</p><button class="buy-btn" data-product="Mega Box">Купить</button></div>
-    <div class="card"><img src="img/MS.png"><h2>Mythic Skin</h2><p>100 ₽</p><button class="buy-btn" data-product="Mythic Skin">Купить</button></div>
+    <div class="card">
+      <img src="img/950.png">
+      <h3>950 гемов</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('950 гемов')">Купить</button>
+    </div>
 
-</div>
+    <div class="card">
+      <img src="img/2000.png">
+      <h3>2000 гемов</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('2000 гемов')">Купить</button>
+    </div>
 
-<script src="script.js?v=4"></script>
+    <!-- PASSES -->
+    <div class="card">
+      <img src="img/BP.png">
+      <h3>Brawl Pass</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('Brawl Pass')">Купить</button>
+    </div>
+
+    <div class="card">
+      <img src="img/BP_plus.png">
+      <h3>Brawl Pass+</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('Brawl Pass+')">Купить</button>
+    </div>
+
+    <div class="card">
+      <img src="img/BPU.png">
+      <h3>Brawl Pass Ultimate</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('Brawl Pass Ultimate')">Купить</button>
+    </div>
+
+    <div class="card">
+      <img src="img/PROP.png">
+      <h3>ProPass</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('ProPass')">Купить</button>
+    </div>
+
+    <div class="card">
+      <img src="img/MM.png">
+      <h3>Mega Box</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('Mega Box')">Купить</button>
+    </div>
+
+    <div class="card">
+      <img src="img/MS.png">
+      <h3>Mythic Skin</h3>
+      <p>100 ₽</p>
+      <button onclick="buy('Mythic Skin')">Купить</button>
+    </div>
+
+  </div>
+
+  <script src="script.js?v=1"></script>
 </body>
 </html>
-
