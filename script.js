@@ -1,5 +1,4 @@
 const tg = window.Telegram.WebApp;
-tg.ready();
 tg.expand();
 
 function buy(product) {
