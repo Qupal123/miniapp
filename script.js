@@ -1,7 +1,9 @@
 const tg = window.Telegram.WebApp;
-tg.expand(); // открываем на весь экран
+tg.expand();
 
-// 🔹 ВСЕ ТОВАРЫ
+const content = document.getElementById("content");
+
+// 🔹 ТОВАРЫ
 const products = [
   { title: "30 гемов", img: "img/30.png", price: 100 },
   { title: "80 гемов", img: "img/80.png", price: 100 },
@@ -19,25 +21,27 @@ const products = [
   { title: "Mythic Skin", img: "img/PROP.png", price: 100 }
 ];
 
-// 🔹 РЕНДЕР ТОВАРОВ
-const container = document.getElementById("products");
+// 🔹 МАГАЗИН
+function showShop() {
+  setActiveTab(0);
+  content.className = "products";
+  content.innerHTML = "";
 
-products.forEach(p => {
-  const card = document.createElement("div");
-  card.className = "card";
+  products.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${p.img}">
+      <h3>${p.title}</h3>
+      <p>${p.price} ₽</p>
+      <button>Купить</button>
+    `;
+    card.querySelector("button").onclick = () => buy(p);
+    content.appendChild(card);
+  });
+}
 
-  card.innerHTML = `
-    <img src="${p.img}" alt="${p.title}">
-    <h3>${p.title}</h3>
-    <p>${p.price} ₽</p>
-    <button>Купить</button>
-  `;
-
-  card.querySelector("button").onclick = () => buy(p);
-  container.appendChild(card);
-});
-
-// 🔹 ПОКУПКА → В PYTHON
+// 🔹 ПОКУПКА
 function buy(product) {
   tg.sendData(JSON.stringify({
     action: "buy",
@@ -47,7 +51,32 @@ function buy(product) {
 
   tg.showPopup({
     title: "Заказ создан",
-    message: `Вы выбрали: ${product.title}\nЦена: ${product.price} ₽`,
+    message: `${product.title}\nЦена: ${product.price} ₽`,
     buttons: [{ type: "ok" }]
   });
 }
+
+// 🔹 ОТЗЫВЫ (ПОКА ЗАГЛУШКА → заменим на реальные)
+function showReviews() {
+  setActiveTab(1);
+  content.className = "reviews";
+  content.innerHTML = `
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      Быстро и честно
+    </div>
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      Всё пришло, спасибо
+    </div>
+  `;
+}
+
+function setActiveTab(i) {
+  document.querySelectorAll(".tab").forEach((t, idx) => {
+    t.classList.toggle("active", idx === i);
+  });
+}
+
+// старт
+showShop();
