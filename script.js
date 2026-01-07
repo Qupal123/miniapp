@@ -1,10 +1,15 @@
-// Инициализация Mini App
-Telegram.WebApp.ready();
+const tg = window.Telegram.WebApp;
+tg.expand();
 
-// Кнопка покупки
-function buy(product) {
-  Telegram.WebApp.sendData(JSON.stringify({
-    action: "buy",
-    product: product
-  }));
-}
+document.querySelectorAll(".buy-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const product = btn.dataset.product;
+
+        tg.sendData(JSON.stringify({
+            action: "buy",
+            product: product
+        }));
+
+        tg.close();
+    });
+});
