@@ -2,14 +2,11 @@ const tg = window.Telegram.WebApp;
 tg.expand();
 
 document.querySelectorAll(".buy-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const product = btn.dataset.product;
-
+    btn.onclick = () => {
         tg.sendData(JSON.stringify({
             action: "buy",
-            product: product
+            product: btn.dataset.product
         }));
-
         tg.close();
-    });
+    };
 });
