@@ -1,53 +1,65 @@
-body {
-    background: #0e1621;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 15px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+body {
+  background: radial-gradient(circle at top, #1b2735, #090a0f);
+  color: #fff;
+  min-height: 100vh;
+}
+
+header {
+  padding: 16px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
 }
 
 .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 16px;
 }
 
 .card {
-    background: #17212b;
-    border-radius: 12px;
-    padding: 10px;
-    text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .card img {
-    width: 100%;
-    height: 120px;
-    object-fit: contain;
+  width: 100%;
+  border-radius: 10px;
 }
 
-.card h2 {
-    font-size: 14px;
-    margin: 8px 0 4px;
+.card h3 {
+  margin: 10px 0 4px;
 }
 
 .card p {
-    margin: 0;
-    font-size: 13px;
-    opacity: 0.9;
+  color: #9bd1ff;
+  margin-bottom: 10px;
 }
 
-button {
-    margin-top: 8px;
-    width: 100%;
-    padding: 8px;
-    background: #2a9df4;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
+.card button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2ea6ff, #0066ff);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  opacity: 0.9;
 }
