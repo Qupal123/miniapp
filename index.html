@@ -1,82 +1,114 @@
-const tg = window.Telegram.WebApp;
-tg.expand();
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lapizxx Shop</title>
 
-const content = document.getElementById("content");
+  <!-- Telegram Mini App API -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-// 🔹 ТОВАРЫ
-const products = [
-  { title: "30 гемов", img: "img/30.png", price: 100 },
-  { title: "80 гемов", img: "img/80.png", price: 100 },
-  { title: "170 гемов", img: "img/170.png", price: 100 },
-  { title: "360 гемов", img: "img/360.png", price: 100 },
-  { title: "950 гемов", img: "img/950.png", price: 100 },
-  { title: "2000 гемов", img: "img/2000.png", price: 100 },
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  { title: "Brawl Pass", img: "img/BP.png", price: 100 },
-  { title: "Brawl Pass+", img: "img/BP_plus.png", price: 100 },
-  { title: "Brawl Pass Ultimate", img: "img/BP_U.png", price: 100 },
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  { title: "Mega Box", img: "img/MM.png", price: 100 },
-  { title: "Mega Skin", img: "img/MS.png", price: 100 },
-  { title: "Mythic Skin", img: "img/PROP.png", price: 100 }
-];
+<body>
 
-// 🔹 МАГАЗИН
-function showShop() {
-  setActiveTab(0);
-  content.className = "products";
-  content.innerHTML = "";
+<header class="header">
+  <span class="logo">🛒 Lapizxx Shop</span>
+</header>
 
-  products.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <img src="${p.img}">
-      <h3>${p.title}</h3>
-      <p>${p.price} ₽</p>
-      <button>Купить</button>
-    `;
-    card.querySelector("button").onclick = () => buy(p);
-    content.appendChild(card);
-  });
-}
+<main class="products">
 
-// 🔹 ПОКУПКА
-function buy(product) {
-  tg.sendData(JSON.stringify({
-    action: "buy",
-    product: product.title,
-    price: product.price
-  }));
+  <!-- ГЕМЫ -->
+  <div class="card">
+    <img src="img/30.png">
+    <h3>30 гемов</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('30 гемов')">Купить</button>
+  </div>
 
-  tg.showPopup({
-    title: "Заказ создан",
-    message: `${product.title}\nЦена: ${product.price} ₽`,
-    buttons: [{ type: "ok" }]
-  });
-}
+  <div class="card">
+    <img src="img/80.png">
+    <h3>80 гемов</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('80 гемов')">Купить</button>
+  </div>
 
-// 🔹 ОТЗЫВЫ (ПОКА ЗАГЛУШКА → заменим на реальные)
-function showReviews() {
-  setActiveTab(1);
-  content.className = "reviews";
-  content.innerHTML = `
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      Быстро и честно
-    </div>
-    <div class="review">
-      <div class="stars">★★★★☆</div>
-      Всё пришло, спасибо
-    </div>
-  `;
-}
+  <div class="card">
+    <img src="img/170.png">
+    <h3>170 гемов</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('170 гемов')">Купить</button>
+  </div>
 
-function setActiveTab(i) {
-  document.querySelectorAll(".tab").forEach((t, idx) => {
-    t.classList.toggle("active", idx === i);
-  });
-}
+  <div class="card">
+    <img src="img/360.png">
+    <h3>360 гемов</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('360 гемов')">Купить</button>
+  </div>
 
-// старт
-showShop();
+  <div class="card">
+    <img src="img/950.png">
+    <h3>950 гемов</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('950 гемов')">Купить</button>
+  </div>
+
+  <div class="card">
+    <img src="img/2000.png">
+    <h3>2000 гемов</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('2000 гемов')">Купить</button>
+  </div>
+
+  <!-- ПРОПУСКА -->
+  <div class="card">
+    <img src="img/BP.png">
+    <h3>Brawl Pass</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('Brawl Pass')">Купить</button>
+  </div>
+
+  <div class="card">
+    <img src="img/BP_plus.png">
+    <h3>Brawl Pass+</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('Brawl Pass+')">Купить</button>
+  </div>
+
+  <div class="card">
+    <img src="img/BPU.png">
+    <h3>Brawl Pass Ultimate</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('Brawl Pass Ultimate')">Купить</button>
+  </div>
+
+  <!-- ПРОЧЕЕ -->
+  <div class="card">
+    <img src="img/MM.png">
+    <h3>Mega Box</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('Mega Box')">Купить</button>
+  </div>
+
+  <div class="card">
+    <img src="img/MS.png">
+    <h3>Mythic Skin</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('Mythic Skin')">Купить</button>
+  </div>
+
+  <div class="card">
+    <img src="img/PROP.png">
+    <h3>ProPass</h3>
+    <p>100 ₽</p>
+    <button onclick="buy('ProPass')">Купить</button>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
